@@ -11,7 +11,7 @@ Frontend/.pnp.js
 Frontend/coverage
 
 # next.js
-Frontend/.next
+Frontend/.next/*/
 Frontend/out
 
 # production

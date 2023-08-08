@@ -5,6 +5,6 @@ export default function about() {
     return<>
     <NavigationBar />
     
-    <h1>About us</h1>;
+    <h1>About us121212</h1>;
     </>
   }
