@@ -11,3 +11,5 @@ db=SQLAlchemy(app)
 migrate=Migrate(app,db)
 CORS(app)
 flask_bcrypt=Bcrypt(app)
+app.secret_key="hello"
+SESSION_TYPE="sqlalchemy"

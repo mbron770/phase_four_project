@@ -49,10 +49,10 @@ class Product(db.Model, SerializerMixin):
     
 class Transaction(db.Model, SerializerMixin):
     __tablename__='transactions'
-    id = db.Column(db.Integer)
-    transaction_amount=db.Column(db.Double, nullable = False) 
+    id = db.Column(db.Integer, primary_key = True)
+    # transaction_amount=db.Column(db.Double, nullable = False) 
     transaction_date=db.Column(db.DateTime, default = db.func.now())
-    transaction_code = db.Column(db.Integer, primary_key=True, nullable = False)
+    transaction_code = db.Column(db.Integer, nullable = False)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     product_id = db.Column(db.Integer, db.ForeignKey('products.id'))
     

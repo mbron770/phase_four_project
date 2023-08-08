@@ -41,9 +41,10 @@ with app.app_context():
     
     for i in range(10): 
         transaction = Transaction(
-            transaction_amount=products[i].price,
+            # transaction_amount=products[i].price,
             user=users[i], 
-            product=products[i]
+            product=products[i], 
+            transaction_code = fake.random_int(min=1, max=100)
         )
         db.session.add(transaction)
     

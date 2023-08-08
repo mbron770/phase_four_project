@@ -1,9 +1,9 @@
 import React from 'react';
-import Navbar from '../components/navbar'
+import NavigationBar from '../components/navbar'
 
 export default function about() {
     return<>
-    <Navbar />
+    <NavigationBar />
     
     <h1>About</h1>;
     </>
