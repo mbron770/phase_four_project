@@ -12,6 +12,7 @@ function useAuth(){
 function MyApp({ Component, pageProps }) {
     const [user,setUser]=useState(null)
     const router = useRouter()
+    //fff
 
 
   //fetch for session
