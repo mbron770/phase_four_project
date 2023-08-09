@@ -3,18 +3,18 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 
 export default function LoginComponent() {
-  const { user, setUser } = useAuth();
-  const [data, setData] = useState({});
+  const { user, setUser } = useAuth()
+  const [data, setData] = useState({})
   const router = useRouter();
 
   function handleChange(e) {
-    const { name, value } = e.target;
-    setData((prev) => ({ ...prev, [name]: value }));
+    const { name, value } = e.target
+    setData((prev) => ({ ...prev, [name]: value }))
   }
 
   function handleSubmit(e) {
-    e.preventDefault();
-    const URL = "http://localhost:5555/login";
+    e.preventDefault()
+    const URL = "http://localhost:5555/login"
     fetch(URL, {
       method: "POST",
       headers: {
@@ -23,18 +23,26 @@ export default function LoginComponent() {
       body: JSON.stringify(data),
     })
       .then((response) => {
-        if (response.ok) return response.json();
-        return response.json().then((error) => Promise.reject(error));
+        if (response.ok) return response.json()
+        return response.json().then((error) => Promise.reject(error))
       })
       .then((user) => {
         setUser(user);
         router.push("/");
       })
-      .catch((error) => alert(error.message || "Error occurred"));
+      .catch((error) => alert(error.message || "Error occurred"))
   }
 
+  function handleChange(e){
+	setData({...data,[e.target.name]:e.target.value})
+}
+
+
+
+
   return (
-	<div className="flex min-h-screen w-screen w-full text-gray-600 bg-gray-50">
+	// <div className="flex min-h-screen w-screen w-full text-gray-600 bg-gray-50">
+		<div className="flex min-h-[90vh] w-screen w-full text-gray-600 bg-gray-50">
 		<div className="w-full flex items-center justify-center">
 		
 		<div className="relative">
