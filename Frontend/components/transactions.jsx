@@ -1,13 +1,12 @@
 import Transaction from "./transaction";
-import { useAuth } from "../pages/_app";
-import { useRouter } from "next/router";
-import { useState } from "react";
-import Link from "next/link";
+import { data } from "../context";
+import { useState, useContext } from "react";
 
 export default function Transactions() {
-  const { user, setUser } = useAuth();
+  const { user } = useContext(data);
+
   return (
-    <div className = "bg-gray-50 h-screen w-full"> 
+    <div className = "bg-gray-50 h-[100] w-full"> 
       <div className="h-[-10%] w-[95%] bg-gray-50">
         <h2 className="text-2xl font-semibold ml-[25%] pb-6 mb-6 text-indigo-500">
           My Transactions

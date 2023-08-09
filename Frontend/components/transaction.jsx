@@ -1,6 +1,9 @@
+
+
+
+
+
 export default function Transaction({ transactions }) {
-  
-    // Group transactions by transaction_code
     const groupedTransactions = transactions.reduce((groups, transaction) => {
       if (!groups[transaction.transaction_code]) {
         groups[transaction.transaction_code] = [];

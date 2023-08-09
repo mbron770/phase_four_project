@@ -1,11 +1,12 @@
-import { useAuth } from "../pages/_app";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { data } from "../context";
+import { useState, useContext } from "react";
 
 export default function LoginComponent() {
-  const { user, setUser } = useAuth()
-  const [data, setData] = useState({})
+  const { setUser } = useContext(data)
+  const [info, setInfo] = useState({})
   const router = useRouter();
+
 
   function handleChange(e) {
     const { name, value } = e.target
@@ -20,7 +21,7 @@ export default function LoginComponent() {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(data),
+      body: JSON.stringify(info),
     })
       .then((response) => {
         if (response.ok) return response.json()
@@ -28,20 +29,22 @@ export default function LoginComponent() {
       })
       .then((user) => {
         setUser(user);
+		console.log(user)
         router.push("/");
       })
       .catch((error) => alert(error.message || "Error occurred"))
   }
 
   function handleChange(e){
-	setData({...data,[e.target.name]:e.target.value})
+	setInfo({...info,[e.target.name]:e.target.value})
 }
 
 
 
 
+
+
   return (
-	// <div className="flex min-h-screen w-screen w-full text-gray-600 bg-gray-50">
 		<div className="flex min-h-[90vh] w-screen w-full text-gray-600 bg-gray-50">
 		<div className="w-full flex items-center justify-center">
 		
@@ -129,6 +132,7 @@ export default function LoginComponent() {
 				Please sign-in to access your account
 			  </p>
   
+			  
 			  <form onSubmit={handleSubmit} className="mb-4">
 				<div className="mb-4">
 				  <label

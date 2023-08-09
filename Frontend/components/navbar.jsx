@@ -158,17 +158,12 @@ export default function NavigationBar() {
             Home
           </Link>
           <Link
-            href="/about"
+            href="/products"
             className="text-indigo-500 hover:bg-indigo-500 hover:text-white px-4 py-1 rounded-full"
           >
-            About Us
+            Products
           </Link>
-          <Link
-            href="/contact"
-            className="text-indigo-500 hover:bg-indigo-500 hover:text-white px-4 py-1 rounded-full"
-          >
-            Contact Us
-          </Link>
+          
           <Link
             href="/login"
             className="text-indigo-500 hover:bg-indigo-500 hover:text-white px-4 py-1 rounded-full"

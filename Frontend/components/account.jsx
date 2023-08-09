@@ -1,22 +1,22 @@
-import React from "react";
 import Link from "next/link";
-import { useAuth } from "../pages/_app";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import AccountDetails from "./accountdetails";
 import Transactions from "./transactions";
-import Logout from "./logout"
+import Logout from "./logout";
+import { data } from "../context";
 
 export default function Account() {
-  const { user, setUser } = useAuth();
-  const [activeSection, setActiveSection] = useState("account")
+  const { setUser } = useContext(data);
+  const { user } = useContext(data);
+  const [activeSection, setActiveSection] = useState("account");
 
   const toggleSection = (section) => {
     setActiveSection(section);
-};
+  };
 
   return (
     <>
-      <div className="flex">
+      <div className="flex bg-gray-50">
         <button
           data-drawer-target="logo-sidebar"
           data-drawer-toggle="logo-sidebar"
@@ -163,26 +163,16 @@ export default function Account() {
                   </div>
                 </div>
               ) : (
-                <Logout/>
-
-
-                
-
-
-
-
-
+                <Logout />
               )}
             </ul>
           </div>
         </aside>
 
-        
-
-<div className="flex-grow bg-gray-50 p-4">
-    {activeSection === "account" && <AccountDetails />}
-    {activeSection === "transactions" && <Transactions />}
-</div>
+        <div className="flex-grow bg-gray-50 p-4">
+          {activeSection === "account" && <AccountDetails />}
+          {activeSection === "transactions" && <Transactions />}
+        </div>
       </div>
     </>
   );

@@ -1,14 +1,13 @@
-import { useAuth } from "../pages/_app";
-import { useRouter } from "next/router";
-import { useState } from "react";
-import Link from "next/link";
+import { useState, useContext } from "react";
+import { data } from "../context";
 
 export default function AccountDetails() {
-  const { user, setUser } = useAuth();
-  const [data, setData] = useState({});
+  const { setUser } = useContext(data);
+  const { user } = useContext(data);
+  const [info, setInfo] = useState({});
 
   function handleChange(e) {
-    setData({ ...data, [e.target.name]: e.target.value });
+    setInfo({ ...info, [e.target.name]: e.target.value });
   }
   console.log(user);
   const URL = "http://localhost:5555/user";
@@ -20,7 +19,7 @@ export default function AccountDetails() {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(data),
+      body: JSON.stringify(info),
     })
       .then((response) => {
         if (response.ok) {
@@ -30,13 +29,14 @@ export default function AccountDetails() {
         }
       })
       .then((user) => {
-        setUser(data);
+        setUser(user);
       })
       .catch((error) => console.log(error.message));
   }
 
   return (
-    <div className="flex min-h-[100vh] w-screen w-full text-gray-600 bg-gray-50">
+    <div className="flex h-[90vh] w-screen w-full text-gray-600 bg-gray-50">
+    
       <div className="w-full flex items-center justify-center">
         <div className="relative">
           <div className="relative flex flex-col sm:w-[30rem] rounded-lg border-gray-400 bg-white shadow-lg px-4">

@@ -49,6 +49,45 @@ def edit_user(id):
         
     return user.to_dict(rules = ('-transactions',))
 
+@app.route('/products', methods=["GET"])
+def products():
+    if(request.method=="GET"):
+        all=Product.query.all()
+        products=[]
+        for product in all:
+            products.append(product.to_dict())
+        return products
+    
+
+@app.route('/transactions', methods=["GET"])
+def transactions():
+    if(request.method=="GET"):
+        all=Transaction.query.all()
+        transactions = []
+        for transaction in all:
+            transactions.append(transaction.to_dict())
+        return transactions[(len(transactions) -1)]
+    
+@app.route('/checkout', methods=["POST"])
+def checkout():
+    if(request.method=="POST"):
+        data = request.json
+        user = data['user_id']
+        products = data['products']
+        transaction_id = data['transaction_id']
+        return_list = []
+        for product in products:
+            try:
+                transaction = Transaction()
+                setattr(transaction, "user_id", user)
+                setattr(transaction, "transaction_code", transaction_id)
+                setattr(transaction, "product_id", product['id'])
+                db.session.add(transaction)
+                db.session.commit()
+                return_list.append(transaction.to_dict())
+            except(IntegrityError, ValueError) as ie:
+                return {"error":ie.args},422
+        return {"success":"Transaction completed successfully"},201
 
 @app.route("/logout",methods=["DELETE"])
 def logout():

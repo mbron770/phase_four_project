@@ -1,6 +1,5 @@
 import React from "react";
 import Link from "next/link";
-import { useAuth } from "../pages/_app";
 import { useState } from "react";
 
 export default function Logout(){
