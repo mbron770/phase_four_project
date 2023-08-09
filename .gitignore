@@ -18,7 +18,8 @@ Frontend/out
 Frontend/build
 
 # misc
-Frontend/.DS_Store
+Frontend/.DS_Store*
+.DS_Store?
 Frontend/.env*
 
 # debug

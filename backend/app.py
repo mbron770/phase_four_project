@@ -92,6 +92,7 @@ def checkout():
 @app.route("/logout",methods=["DELETE"])
 def logout():
     flask_session['user_id']=None
+    #
     return {},204
 
 
