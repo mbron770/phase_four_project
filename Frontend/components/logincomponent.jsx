@@ -30,7 +30,7 @@ export default function LoginComponent() {
       .then((user) => {
         setUser(user);
 		console.log(user)
-        router.push("/");
+        router.push("/products");
       })
       .catch((error) => alert(error.message || "Error occurred"))
   }

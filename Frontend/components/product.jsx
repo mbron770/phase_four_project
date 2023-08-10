@@ -36,7 +36,7 @@ const Product = ({ productList, cart, setCart }) => {
 
       <section
         id="productCards"
-        className="w-fit mx-auto grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 justify-items-center justify-center gap-y-20 gap-x-14 mt-0 mb-5"
+        className="w-fit mx-auto grid grid-cols-1 xl:grid-cols-5 lg:grid-cols-3 md:grid-cols-2 justify-items-center justify-center gap-y-20 gap-x-14 mt-0 mb-5"
       >
         {productList && productList.map((product) => (
           <div

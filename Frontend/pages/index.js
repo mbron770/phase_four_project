@@ -1,12 +1,13 @@
 import Head from 'next/head'
 import React from 'react';
 import NavigationBar from '../components/navbar'
-// import LoginComponent from '../components/logincomponent';
+import LoginComponent from '../components/logincomponent';
 
 export default function Home() {
   return (
     <div >
       <NavigationBar/>
+      <LoginComponent/>
      
       
   

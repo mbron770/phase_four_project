@@ -17,13 +17,13 @@ export default function products() {
   return (
     <>
     <NavigationBar/>
-      <Cart
+      {/* <Cart
         cart={cart}
         setOrderNum={setOrderNum}
         orderNum={orderNum}
         setCart={setCart}
         transactions={transactions}
-      />
+      /> */}
       {/* <h1>Products</h1>; */}
       {/* {productList.map((product) => (
         <Product

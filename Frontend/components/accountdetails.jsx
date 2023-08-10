@@ -35,7 +35,7 @@ export default function AccountDetails() {
   }
 
   return (
-    <div className="flex h-[110%] w-screen w-full text-gray-600 bg-gray-50">
+    <div className="flex h-[100vh] w-screen w-full text-gray-600 bg-gray-50">
     
       <div className="w-full flex items-center justify-center">
         <div className="relative">

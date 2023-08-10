@@ -1,12 +1,17 @@
 import { useState, useRef, useContext } from "react";
 import { data } from "../context";
+import Link from "next/link";
 
-// const CartItem = ({ product })
-const CartItem = ({ cart }) => {
+const CartItem = ({ cart, sum}) => {
   const [showCart, setShowCart] = useState(false);
   const { setUser } = useContext(data);
   const { user } = useContext(data);
   const dropdownRef = useRef(null);
+
+
+
+  
+
 
   const handleMouseOver = () => {
     setShowCart(true);
@@ -23,8 +28,6 @@ const CartItem = ({ cart }) => {
 
   return (
     <>
-      <p>{/* {product.product_name} */}</p>
-
       <div
         className="relative inline-block"
         onMouseEnter={handleMouseOver}
@@ -51,9 +54,7 @@ const CartItem = ({ cart }) => {
           </span>
         </div>
 
-        {/* Dropdown menu */}
-        
-        {/* {showCart && (
+        {showCart && (
           <div
             ref={dropdownRef}
             id="dropdownHover"
@@ -62,211 +63,107 @@ const CartItem = ({ cart }) => {
             <div className="mt-8">
               <div className="flow-root">
                 <ul role="list" className="-my-2 divide-y divide-gray-200">
-
-
-
-                  <li className="flex py-6">
-                    <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
-                      <img
-                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpK4hpSfeC2lOjI6oJnzgmwf4bI96Uf94LYg&usqp=CAU"
-                        alt="Salmon orange fabric pouch with match zipper, gray zipper pull, and adjustable hip belt."
-                        className="h-full w-full object-cover object-center"
-                      />
-                    </div>
-
-                    <div className="ml-4 flex flex-1 flex-col">
-                      <div>
-                        <div className="flex justify-between text-base font-medium text-gray-900">
-                          <h3>
-                            <p className="text-lg text-gray-700 truncate block capitalize">
-                              product name
+                  {cart &&
+                    cart.length > 0 &&
+                    cart.map((product) => (
+                      <li className="flex py-6">
+                        <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
+                          <img
+                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpK4hpSfeC2lOjI6oJnzgmwf4bI96Uf94LYg&usqp=CAU"
+                            alt="Salmon orange fabric pouch with match zipper, gray zipper pull, and adjustable hip belt."
+                            className="h-full w-full object-cover object-center"
+                          />
+                        </div>
+                        <div className="ml-4 flex flex-1 flex-col">
+                          <div>
+                            <div className="flex justify-between text-base font-medium text-gray-900">
+                              <h3>
+                                <p className="text-lg text-gray-700 truncate block capitalize">
+                                  {product.product_name}
+                                </p>
+                              </h3>
+                              <p className="mt-1 ml-4 text-gray-700">{`$${product.price}`}</p>
+                            </div>
+                            <p className="mt-1 text-sm text-gray-500">
+                              {product.product_category}
                             </p>
-                          </h3>
-                          <p className="mt-1 ml-4 text-gray-700">$90.00</p>
+                          </div>
+                          <div className="flex flex-1 items-end justify-between text-sm">
+                            <p className="text-gray-500">Qty 1</p>
+                            <div className="flex">
+                              <button
+                                type="button"
+                                className="font-medium text-indigo-600 hover:text-indigo-500"
+                              >
+                                Remove
+                              </button>
+                            </div>
+                          </div>
                         </div>
-                        <p className="mt-1 text-sm text-gray-500">category</p>
-                      </div>
-                      <div className="flex flex-1 items-end justify-between text-sm">
-                        <p className="text-gray-500">Qty 1</p>
-
-                        <div className="flex">
-                          <button
-                            type="button"
-                            className="font-medium text-indigo-600 hover:text-indigo-500"
-                          >
-                            Remove
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-
-
-
-
-
-
+                      </li>
+                    ))}
                 </ul>
               </div>
             </div>
 
-<div className="border-t border-gray-200 px-4 py-6 sm:px-6">
-    <div className="flex justify-between text-base font-medium text-gray-900">
-        <p>Subtotal</p>
-        <p>$262.00</p>
-    </div>
-    <p className="mt-0.5 text-sm text-gray-500">Shipping and taxes calculated at checkout.</p>
-    <div className="mt-6">
-        <a href="#" className="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700">Checkout</a>
-    </div>
-    <div className="mt-6 flex justify-center text-center text-sm text-gray-500">
-        <p>
-            or 
-            <button type="button" className="font-medium text-indigo-600 hover:text-indigo-500">
-                Continue Shopping
-                <span aria-hidden="true"> &rarr;</span>
-            </button>
-        </p>
-    </div>
-</div>
+{
 
 
+  
+  }
 
+  
 
+  
 
-
-
-          </div>
-        )} */}
-
-
-{user ? (
-        showCart && (
-          <div
-            ref={dropdownRef}
-            id="dropdownHover"
-            className="absolute left-3/4 transform -translate-x-3/4 z-10 bg-gray-100 rounded-lg shadow w-[30rem] px-4 max-h-80 overflow-y-auto"
-          >
-            <div className="mt-8">
-              <div className="flow-root">
-                <ul role="list" className="-my-2 divide-y divide-gray-200">
-
-{/* {cart.map(product => (
-
-<li className="flex py-6">
-<div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
-  <img
-    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpK4hpSfeC2lOjI6oJnzgmwf4bI96Uf94LYg&usqp=CAU"
-    alt="Salmon orange fabric pouch with match zipper, gray zipper pull, and adjustable hip belt."
-    className="h-full w-full object-cover object-center"
-  />
-</div>
-<div className="ml-4 flex flex-1 flex-col">
-  <div>
-    <div className="flex justify-between text-base font-medium text-gray-900">
-      <h3>
-        <p className="text-lg text-gray-700 truncate block capitalize">
-          {product.product_name}
-        </p>
-      </h3>
-      <p className="mt-1 ml-4 text-gray-700">{`$${product.price}`}</p>
-    </div>
-    <p className="mt-1 text-sm text-gray-500">{product.product_category}</p>
-  </div>
-  <div className="flex flex-1 items-end justify-between text-sm">
-    <p className="text-gray-500">Qty 1</p>
-    <div className="flex">
-      <button
-        type="button"
-        className="font-medium text-indigo-600 hover:text-indigo-500"
-      >
-        Remove
-      </button>
-    </div>
-  </div>
-</div>
-</li>
-
-))} */}
-
-{cart && cart.length > 0 && cart.map(product => (
-  <li className="flex py-6">
-    <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
-      <img
-        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpK4hpSfeC2lOjI6oJnzgmwf4bI96Uf94LYg&usqp=CAU"
-        alt="Salmon orange fabric pouch with match zipper, gray zipper pull, and adjustable hip belt."
-        className="h-full w-full object-cover object-center"
-      />
-    </div>
-    <div className="ml-4 flex flex-1 flex-col">
-      <div>
-        <div className="flex justify-between text-base font-medium text-gray-900">
-          <h3>
-            <p className="text-lg text-gray-700 truncate block capitalize">
-              {product.product_name}
-            </p>
-          </h3>
-          <p className="mt-1 ml-4 text-gray-700">{`$${product.price}`}</p>
-        </div>
-        <p className="mt-1 text-sm text-gray-500">{product.product_category}</p>
-      </div>
-      <div className="flex flex-1 items-end justify-between text-sm">
-        <p className="text-gray-500">Qty 1</p>
-        <div className="flex">
-          <button
-            type="button"
-            className="font-medium text-indigo-600 hover:text-indigo-500"
-          >
-            Remove
-          </button>
-        </div>
-      </div>
-    </div>
-  </li>
-))}
-
-
-
-
-                  
-
-
-
-
-
-                </ul>
-              </div>
-            </div>
+           
+            
 
             <div className="border-t border-gray-200 px-4 py-6 sm:px-6">
               <div className="flex justify-between text-base font-medium text-gray-900">
                 <p>Subtotal</p>
-                <p>$262.00</p>
+                <p>{`$${sum.toFixed(2)}`}</p>
               </div>
-              <p className="mt-0.5 text-sm text-gray-500">Shipping and taxes calculated at checkout.</p>
+              <p className="mt-0.5 text-sm text-gray-500">
+                Shipping and taxes calculated at checkout.
+              </p>
               <div className="mt-6">
-                <a href="#" className="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700">Checkout</a>
+                <a
+                  href="#"
+                  className="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
+                >
+                  Checkout
+                </a>
               </div>
               <div className="mt-6 flex justify-center text-center text-sm text-gray-500">
                 <p>
-                  or 
-                  <button type="button" className="font-medium text-indigo-600 hover:text-indigo-500">
+                  or
+                  <Link
+                      href="/products"
+                   
+                    >
+                        <button
+                    type="button"
+                    className="font-medium text-indigo-600 hover:text-indigo-500"
+                  >
                     Continue Shopping
+                    
+                    
+
                     <span aria-hidden="true"> &rarr;</span>
                   </button>
+                    </Link>
+
+
+
                 </p>
               </div>
             </div>
           </div>
-        )
-      ) : (
-        null
-      )}
+        )}
       </div>
     </>
   );
 };
 
 export default CartItem;
-
-// 4
