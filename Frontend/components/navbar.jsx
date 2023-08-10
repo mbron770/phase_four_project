@@ -2,7 +2,6 @@ import React from "react";
 import Link from "next/link";
 import Cart from '../components/cart'
 import Search from "../components/search";
-import CartItem from "../components/cartItem"
 import { data } from "../context";
 import { useContext, useState } from "react";
 

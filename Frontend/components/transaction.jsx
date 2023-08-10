@@ -1,8 +1,3 @@
-
-
-
-
-
 export default function Transaction({ transactions }) {
     const groupedTransactions = transactions.reduce((groups, transaction) => {
       if (!groups[transaction.transaction_code]) {
@@ -14,7 +9,7 @@ export default function Transaction({ transactions }) {
   
     return (
       <div className="h-full w-[50vw] max-w-screen-lg mx-auto">
-        {Object.keys(groupedTransactions).map(transactionCode => (
+        {Object.keys(groupedTransactions).reverse().map(transactionCode => (
           <div key={transactionCode} className="flex flex-col shadow hover:shadow-md w-full bg-white rounded-lg overflow-hidden cursor-pointer mb-6">
             <table className="w-full text-md text-left text-indigo-500">
               <thead className="text-xs text-indigo-500 uppercase bg-gray-50">

@@ -2,16 +2,11 @@ import { useState, useRef, useContext } from "react";
 import { data } from "../context";
 import Link from "next/link";
 
-const CartItem = ({ cart, sum}) => {
+const CartItem = ({ cart, subtotal }) => {
   const [showCart, setShowCart] = useState(false);
   const { setUser } = useContext(data);
   const { user } = useContext(data);
   const dropdownRef = useRef(null);
-
-
-
-  
-
 
   const handleMouseOver = () => {
     setShowCart(true);
@@ -25,6 +20,12 @@ const CartItem = ({ cart, sum}) => {
       setShowCart(false);
     }
   };
+
+  let sum = 0;
+
+  for (let i = 0; i < subtotal.length; i++) {
+    sum += subtotal[i];
+  }
 
   return (
     <>
@@ -50,7 +51,7 @@ const CartItem = ({ cart, sum}) => {
           </svg>
 
           <span className="bg-indigo-300 text-gray-700 ml-0 text-xs font-medium  px-2.5 py-0.5 rounded-full">
-            0
+            {subtotal.length > 0 ? subtotal.length : 0}
           </span>
         </div>
 
@@ -106,18 +107,7 @@ const CartItem = ({ cart, sum}) => {
               </div>
             </div>
 
-{
-
-
-  
-  }
-
-  
-
-  
-
-           
-            
+            {}
 
             <div className="border-t border-gray-200 px-4 py-6 sm:px-6">
               <div className="flex justify-between text-base font-medium text-gray-900">
@@ -128,34 +118,26 @@ const CartItem = ({ cart, sum}) => {
                 Shipping and taxes calculated at checkout.
               </p>
               <div className="mt-6">
-                <a
-                  href="#"
+
+                <Link
+                  href="/checkoutPage"
                   className="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
                 >
                   Checkout
-                </a>
+                </Link>
               </div>
               <div className="mt-6 flex justify-center text-center text-sm text-gray-500">
                 <p>
                   or
-                  <Link
-                      href="/products"
-                   
+                  <Link href="/products">
+                    <button
+                      type="button"
+                      className="font-medium text-indigo-600 hover:text-indigo-500"
                     >
-                        <button
-                    type="button"
-                    className="font-medium text-indigo-600 hover:text-indigo-500"
-                  >
-                    Continue Shopping
-                    
-                    
-
-                    <span aria-hidden="true"> &rarr;</span>
-                  </button>
-                    </Link>
-
-
-
+                      Continue Shopping
+                      <span aria-hidden="true"> &rarr;</span>
+                    </button>
+                  </Link>
                 </p>
               </div>
             </div>

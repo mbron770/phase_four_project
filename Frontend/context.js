@@ -21,7 +21,11 @@ function Context({ children }) {
     }
   }
   useEffect(() => {fetch("http://localhost:5555/transactions").then(response=>response.json()).then(parsed => setTransactions(parsed))}, [])
-  useEffect(()=>checkOrderNum())
+  useEffect(()=>checkOrderNum(), [transactions])
+
+  // useEffect(() => {
+
+  // }, [])
 
 
   useEffect(() => {fetch("http://localhost:5555/products").then(response=>response.json()).then(parsed => setAllData(parsed))}, [])
