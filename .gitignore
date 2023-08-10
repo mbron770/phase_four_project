@@ -13,6 +13,7 @@ Frontend/coverage
 # next.js
 Frontend/.next/*/
 Frontend/out
+Frontend/.next
 
 # production
 Frontend/build
