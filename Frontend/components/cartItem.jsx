@@ -268,3 +268,5 @@ const CartItem = ({ cart }) => {
 };
 
 export default CartItem;
+
+// 4
