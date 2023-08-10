@@ -106,10 +106,13 @@ const Cart = ({cart, setOrderNum, orderNum, setCart, transactions}) => {
 
     return(
         <>
-        <p>
+        <CartItem cart = {cart}/>
+
+
+        {/* <p>
             {cart.map(item => <CartItem product={item}/>)}
         <input type="button" onClick={clickCart} value="Cart"/>
-        </p>
+        </p> */}
         
         </>
     )

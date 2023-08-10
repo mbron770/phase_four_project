@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link";
 // import Cart from '../components/cart'
 import Search from "../components/search";
+import CartItem from "../components/cartItem"
 
 export default function NavigationBar() {
   return (
@@ -40,7 +41,7 @@ export default function NavigationBar() {
             {/* Search Box */}
             <Search />
 
-            <div className="relative group">
+            {/* <div className="relative group">
               <div className="flex-shrink-0 mb-4 md:mb-0 mr-6 ml-5">
                 <div className="flex items-center">
                   <svg
@@ -57,12 +58,8 @@ export default function NavigationBar() {
                       d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"
                     />
                   </svg>
-
-                  {/* <Link href="/" className="ml-2 text-white">
-                  Ecommerce Site
-                </Link> */}
                 </div>
-                {/* Dropdown content */}
+               
                 <div className="absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white hidden group-hover:block">
                   <div className="py-1">
                     {" "}
@@ -87,7 +84,10 @@ export default function NavigationBar() {
                   </div>
                 </div>
               </div>
-            </div>
+            </div> */}
+            
+
+            <CartItem/>
 
             <div className="relative group">
               <div className="flex-shrink-0 mb-4 md:mb-0 mr-6 ml-5">
@@ -176,6 +176,8 @@ export default function NavigationBar() {
           >
             My Account
           </Link>
+
+          
         </div>
       </div>
     </>

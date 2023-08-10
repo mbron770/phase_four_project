@@ -1,5 +1,4 @@
 import React from "react";
-// import Navbar from "../components/navbar";
 import Product from "../components/product";
 import Cart from "../components/cart";
 import { data } from "../context";
@@ -25,15 +24,20 @@ export default function products() {
         setCart={setCart}
         transactions={transactions}
       />
-      <h1>Products</h1>;
-      {productList.map((product) => (
+      {/* <h1>Products</h1>; */}
+      {/* {productList.map((product) => (
         <Product
           key={product.id}
           setCart={setCart}
           cart={cart}
           product={product}
         />
-      ))}
+      ))} */}
+
+      <Product productList = {productList} setCart={setCart}
+          cart={cart}/>
+
+
     </>
   );
 }
