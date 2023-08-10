@@ -6,12 +6,20 @@ import Logout from "./logout";
 import { data } from "../context";
 import { useRouter } from "next/router";
 
+
 export default function Account() {
   const { setUser } = useContext(data);
   const { user } = useContext(data);
   const [activeSection, setActiveSection] = useState("account");
 
   const router = useRouter()
+
+
+  useEffect( () => {
+    if(router.query.view === 'transactions'){
+      setActiveSection('transactions')
+    }
+  },[router.query.view])
 
   const toggleSection = (section) => {
     setActiveSection(section);

@@ -1,17 +1,6 @@
 import React from "react";
 
 const Product = ({ productList, cart, setCart }) => {
-  // function submitHandler() {
-  //   setCart([...cart, product]);
-  // }
-  /* {productList.map((product) => (
-        <Product
-          key={product.id}
-          setCart={setCart}
-          cart={cart}
-          product={product}
-        />
-      ))} */
 
   return (
     // <div>

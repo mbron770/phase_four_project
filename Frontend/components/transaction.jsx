@@ -1,4 +1,17 @@
+import { data } from "../context";
+import { useState, useContext, useEffect } from "react";
+
 export default function Transaction({ transactions }) {
+// const { allData } = useContext(data);
+const { cart } = useContext(data);
+// const { setCart } = useContext(data);
+// const { setOrderNum } = useContext(data);
+// const { orderNum } = useContext(data);
+// const { transactions } = useContext(data);
+// const { user } = useContext(data)
+// const productList = allData;
+
+
     const groupedTransactions = transactions.reduce((groups, transaction) => {
       if (!groups[transaction.transaction_code]) {
         groups[transaction.transaction_code] = [];
@@ -6,6 +19,28 @@ export default function Transaction({ transactions }) {
       groups[transaction.transaction_code].push(transaction);
       return groups;
     }, {})
+
+    console.log(groupedTransactions[3])
+
+
+//     let t = []
+// t = (transaction.map((product) => (product.price)))
+// console.log(t)
+
+
+// let sum = 0;
+
+//   for (let i = 0; i < subtotal.length; i++) {
+//     sum += subtotal[i];
+
+    
+//   }
+// console.log(cart)
+// let quantity = []
+// quantity = (transactions.map((product) => (product.price)))
+// let sum = 0;
+
+// console.log(quantity.length)
   
     return (
       <div className="h-full w-[50vw] max-w-screen-lg mx-auto">
@@ -36,7 +71,7 @@ export default function Transaction({ transactions }) {
                     {`Order Date: ${new Date(groupedTransactions[transactionCode][0].transaction_date).toLocaleDateString()}`}
                   </th>
                   <td className="text-sm px-6 py-3">{`Order Number: ${transactionCode}`}</td>
-                  <td className="text-sm px-6 py-3">{`Order Total: $${groupedTransactions[transactionCode].reduce((sum, transaction) => sum + (transaction.product.price * transaction.product.product_quantity), 0).toFixed(2)}`}</td>
+                  <td className="text-sm px-6 py-3">{`Order Total: $${groupedTransactions[transactionCode].reduce((sum, transaction) => sum + (transaction.product.price * 2), 0).toFixed(2)}`}</td>
                 </tr>
               </tfoot>
             </table>
