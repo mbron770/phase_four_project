@@ -68,6 +68,7 @@ const Product = ({ productList, cart, setCart }) => {
                       width="25"
                       height="25"
                       fill="#6366F1"
+                      //
                       className="bi bi-bag-plus"
                       viewBox="0 0 16 16"
                       onClick={() => setCart([...cart, product])}
