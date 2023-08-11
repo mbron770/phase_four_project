@@ -17,34 +17,10 @@ const Product = ({ productList, cart, setCart }) => {
     product.price.toString().includes(searchTerm)
   );
 
-
-
-
-  // const filteredProducts = !searchTerm ? 
-  // productList : 
-  // productList.filter(product => 
-  //   product.product_name.toLowerCase().includes(searchTerm.toLowerCase()));
-
   return (
-    // <div>
-    //   <h3>Name: {product.product_name}</h3>
-    //   <p>
-    //     <br />
-    //     Description:
-    //     <br />
-    //     {product.product_category}
-    //     <br />
-    //     Price:
-    //     <br />
-    //     {product.price}
-    //     <br />
-    //   </p>
-    //   <input type="button" onClick={submitHandler} value="Add to Cart" />
-    // </div>
+  
 
     <div className="text-center p-20 bg-gray-50">
-      {/* <h1 className="font-bold text-4xl mb-4">Responsive Product card grid</h1>
-      <h1 className="text-3xl">Tailwind CSS</h1> */}
 
       <section
         id="productCards"
@@ -57,13 +33,13 @@ const Product = ({ productList, cart, setCart }) => {
           >
             <a href="#">
               <img
-                src="https://images.unsplash.com/photo-1646753522408-077ef9839300?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwcm9maWxlLXBhZ2V8NjZ8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
+                src={product.image}
                 alt="Product"
                 className="h-80 w-72 object-cover rounded-t-lg"
               />
 
               <div className="px-4 py-3 w-72">
-                <p className="text-lg  text-indigo-500 truncate block capitalize">
+                <p className="text-md  text-indigo-500 truncate block capitalize">
                   {product.product_category}
                 </p>
                 <p className="text-lg font-bold text-indigo-500 truncate block capitalize">
@@ -80,7 +56,6 @@ const Product = ({ productList, cart, setCart }) => {
                       width="25"
                       height="25"
                       fill="#6366F1"
-                      //1
                       className="bi bi-bag-plus"
                       viewBox="0 0 16 16"
                       onClick={() => setCart([...cart, product])}

@@ -15,10 +15,6 @@ export default function NavigationBar() {
   const { orderNum } = useContext(data);
   const { transactions } = useContext(data);
   const productList = allData;
-  console.log(productList)
-
-  // allData.filter(product => product.product_name.toLowerCase().includes(searchTerm.toLowerCase()))
-  // const productName = allData.filter(product => product.product_name.toLowerCase().includes(searchTerm.toLowerCase()))
 
   return (
     <>

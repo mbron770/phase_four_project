@@ -39,52 +39,13 @@ export default function Register(){
         }).then((info) => {
             if(info){
             setNewUser(info)
-            router.push('/login')
+            router.push('/products')
 
             }
             
         }).catch(error => console.log(error.message))
 
     }
-
-
-
-    // function getLastTransaction() {
-    //     useEffect(() => {const URL = "http://localhost:5555/login"
-    //     fetch(URL, {
-    //       method: "POST",
-    //       headers: {
-    //         "Content-Type": "application/json",
-    //       },
-    //       body: JSON.stringify({
-      
-    //         'username': user.username, 
-    //         'password': user.password,
-      
-      
-      
-    //       }),
-    //     })
-    //       .then((response) => {
-    //         if (response.ok) return response.json()
-    //         return response.json().then((error) => Promise.reject(error))
-    //       })
-    //       .then((user) => {
-    //         setUser(user);
-    //       })
-    //       .catch((error) => alert(error.message || "Error occurred"))},[])
-      
-    //     }
-      
-      
-      
-    //     getLastTransaction()
-
-
-
-
-
-
 
     return (
         <div className="flex h-[100vh] w-screen w-full text-gray-600 bg-gray-50">

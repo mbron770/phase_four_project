@@ -25,7 +25,7 @@ export default function Checkout() {
     sum += quantity[i];
   }
 
-  function clickCart() {
+  function purchase() {
     // const user = 1;
     const packet = { user_id: user.id, products: cart, transaction_id: orderNum };
     fetch("http://localhost:5555/checkout", {
@@ -40,6 +40,11 @@ export default function Checkout() {
     console.log(orderNum);
     setCart([]);
     router.push("/account?view=transactions");
+  }
+
+
+  function remove(e){
+    setCart(cart.toSpliced(e.target.key, 1))
   }
 
   return (
@@ -140,12 +145,12 @@ export default function Checkout() {
               <ul role="list" className="-my-2 divide-y divide-gray-200">
                 {cart &&
                   cart.length > 0 &&
-                  cart.map((product) => (
+                  cart.map((product, index) => (
                     <div className="mt-8 space-y-3 rounded-lg border bg-white px-2 py-4 sm:px-6">
                       <li className="flex py-6">
                         <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
                           <img
-                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpK4hpSfeC2lOjI6oJnzgmwf4bI96Uf94LYg&usqp=CAU"
+                            src={product.image}
                             alt="Salmon orange fabric pouch with match zipper, gray zipper pull, and adjustable hip belt."
                             className="h-full w-full object-cover object-center"
                           />
@@ -168,6 +173,8 @@ export default function Checkout() {
                             <p className="text-gray-500">Qty 1</p>
                             <div className="flex">
                               <button
+                               key = {index}
+                               onClick={(e) => remove(e)}
                                 type="button"
                                 className="font-medium text-indigo-600 hover:text-indigo-500"
                               >
@@ -264,7 +271,7 @@ export default function Checkout() {
               </div>
             </div>
             <button
-              onClick={clickCart}
+              onClick={purchase}
               className="mt-10 mb-8 w-full rounded-md bg-indigo-500 px-6 py-3 font-medium text-white shadow-sm hover:bg-indigo-700"
             >
               Place Order

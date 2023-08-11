@@ -3,6 +3,7 @@ import { data } from "../context";
 import Link from "next/link";
 
 const CartItem = ({ cart, subtotal }) => {
+  const { setCart } = useContext(data)
   const [showCart, setShowCart] = useState(false);
   const { setUser } = useContext(data);
   const { user } = useContext(data);
@@ -25,6 +26,10 @@ const CartItem = ({ cart, subtotal }) => {
 
   for (let i = 0; i < subtotal.length; i++) {
     sum += subtotal[i];
+  }
+
+  function remove(e){
+    setCart(cart.toSpliced(e.target.key, 1))
   }
 
   return (
@@ -59,7 +64,7 @@ const CartItem = ({ cart, subtotal }) => {
           <div
             ref={dropdownRef}
             id="dropdownHover"
-            className="absolute right-4 top-10 z-25 bg-gray-50 rounded-lg shadow w-[30rem] px-4 max-h-80 overflow-y-auto"
+            className="absolute right-4 top-10 z-25 bg-gray-50 rounded-lg shadow w-[35rem] px-4 max-h-80 overflow-y-auto"
           
           >
             <div className="mt-8">
@@ -67,17 +72,17 @@ const CartItem = ({ cart, subtotal }) => {
                 <ul role="list" className="-my-2 divide-y divide-gray-200">
                   {cart &&
                     cart.length > 0 &&
-                    cart.map((product) => (
+                    cart.map((product, index) => (
                       <li className="flex py-6">
                         <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
                           <img
-                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpK4hpSfeC2lOjI6oJnzgmwf4bI96Uf94LYg&usqp=CAU"
+                            src={product.image}
                             alt="Salmon orange fabric pouch with match zipper, gray zipper pull, and adjustable hip belt."
                             className="h-full w-full object-cover object-center"
                           />
                         </div>
                         <div className="ml-4 flex flex-1 flex-col">
-                          <div>
+                          <div> 
                             <div className="flex justify-between text-base font-medium text-gray-900">
                               <h3>
                                 <p className="text-lg text-gray-700 truncate block capitalize">
@@ -94,6 +99,8 @@ const CartItem = ({ cart, subtotal }) => {
                             <p className="text-gray-500">Qty 1</p>
                             <div className="flex">
                               <button
+                              key = {index}
+                               onClick={(e) => remove(e)}
                                 type="button"
                                 className="font-medium text-indigo-600 hover:text-indigo-500"
                               >

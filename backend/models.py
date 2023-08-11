@@ -42,6 +42,7 @@ class Product(db.Model, SerializerMixin):
     product_category=db.Column(db.String, nullable = False)
     price=db.Column(db.Double, nullable = False)
     product_quantity=db.Column(db.Integer, nullable = False)
+    image=db.Column(db.String, nullable = False)
     
     transactions = db.relationship('Transaction', back_populates = 'product')
     

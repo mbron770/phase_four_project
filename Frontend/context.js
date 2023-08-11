@@ -12,10 +12,6 @@ function Context({ children }) {
   const [searchTerm, setSearchTerm] = useState('')
 //   const router = useRouter()
 
-
-
-
-
   function checkOrderNum() {
     if (transactions !== {}) {
       setOrderNum(transactions["transaction_code"] + 1)
