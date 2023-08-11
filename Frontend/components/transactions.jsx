@@ -5,6 +5,7 @@ import { useState, useContext, useEffect } from "react";
 export default function Transactions() {
   const { user } = useContext(data);
   const { setUser } = useContext(data)
+  
 
  function getLastTransaction() {
   useEffect(() => {const URL = "http://localhost:5555/login"

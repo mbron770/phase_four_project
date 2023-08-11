@@ -59,7 +59,8 @@ const CartItem = ({ cart, subtotal }) => {
           <div
             ref={dropdownRef}
             id="dropdownHover"
-            className="absolute left-3/4 transform -translate-x-3/4 z-10 bg-gray-100 rounded-lg shadow w-[30rem] px-4 max-h-80 overflow-y-auto"
+            className="absolute right-4 top-10 z-25 bg-gray-50 rounded-lg shadow w-[30rem] px-4 max-h-80 overflow-y-auto"
+          
           >
             <div className="mt-8">
               <div className="flow-root">

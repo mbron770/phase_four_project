@@ -31,6 +31,25 @@ def login():
     flask_session['user_id'] = user.id 
     return user.to_dict()
 
+
+
+
+@app.route('/user', methods = ['POST'])
+def register_new_user():
+    if (request.method == 'POST'):
+        data = request.json 
+        user = User()
+        try: 
+            for attr in data:
+                setattr(user, attr, data[attr])
+            db.session.add(user)
+            db.session.commit()
+            return user.to_dict(), 201 
+        except (IndentationError, ValueError) as ie:
+            return {'error' : ie.args}, 422
+            
+        
+    
 @app.route('/user/<int:id>', methods = ['GET','PATCH'])
 def edit_user(id):
     user = User.query.filter(User.id == id).first()
@@ -89,10 +108,10 @@ def checkout():
                 return {"error":ie.args},422
         return {"success":"Transaction completed successfully"},201
 
+
 @app.route("/logout",methods=["DELETE"])
 def logout():
     flask_session['user_id']=None
-    #12
     return {},204
 
 

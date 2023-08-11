@@ -26,8 +26,8 @@ export default function Checkout() {
   }
 
   function clickCart() {
-    const user = 1;
-    const packet = { user_id: user, products: cart, transaction_id: orderNum };
+    // const user = 1;
+    const packet = { user_id: user.id, products: cart, transaction_id: orderNum };
     fetch("http://localhost:5555/checkout", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -190,7 +190,7 @@ export default function Checkout() {
             <div>
               <label
                 htmlFor="nameOnCard"
-                className="mt-4 mb-2 block text-sm font-medium"
+                className="mt-4 mb-2 block text-xs font-small"
               >
                 Name on Card
               </label>
@@ -202,7 +202,7 @@ export default function Checkout() {
               />
               <label
                 htmlFor="cardNumber"
-                className="mt-4 mb-2 block text-sm font-medium"
+                className="mt-4 mb-2 block text-xs font-small"
               >
                 Card Number
               </label>
@@ -216,7 +216,7 @@ export default function Checkout() {
                 <div>
                   <label
                     htmlFor="expirationDate"
-                    className="mb-2 block text-sm font-medium"
+                    className="mb-2 block text-xs font-small"
                   >
                     Expiration Date
                   </label>
@@ -244,7 +244,7 @@ export default function Checkout() {
                 <div>
                   <label
                     htmlFor="zipCode"
-                    className="mb-2 block text-sm font-medium"
+                    className="mb-2 block text-xs font-small"
                   >
                     ZIP / Postal Code
                   </label>
@@ -252,7 +252,7 @@ export default function Checkout() {
                     type="text"
                     id="zipCode"
                     className="w-full px-4 py-2 border rounded-md"
-                    placeholder="Enter ZIP / Postal Code"
+                    placeholder="ZIP"
                   />
                 </div>
               </div>

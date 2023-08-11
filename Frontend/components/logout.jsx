@@ -1,8 +1,9 @@
-import React from "react";
 import Link from "next/link";
-import { useState } from "react";
+import { data } from "../context";
+import { useState, useRef, useContext, useEffect } from "react";
 
 export default function Logout(){
+  const { user } = useContext(data)
     return(
         <>
         <div className="flex-shrink-0 mb-4 md:mb-0 mr-6">
@@ -22,12 +23,13 @@ export default function Logout(){
                       />
                     </svg>
 
-                    <Link
+                    <a
                       href="/login"
                       className="text-indigo-500 hover:bg-indigo-500 hover:text-white px-4 py-1 rounded-full ml-.5"
                     >
                       Logout
-                    </Link>
+                    </a>
+                    {console.log(user)}
                   </div>
                 </div>
         </>

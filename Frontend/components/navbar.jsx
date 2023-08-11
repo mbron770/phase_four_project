@@ -6,6 +6,7 @@ import { data } from "../context";
 import { useContext, useState } from "react";
 
 
+
 export default function NavigationBar() {
   const { allData } = useContext(data);
   const { cart } = useContext(data);
@@ -14,6 +15,11 @@ export default function NavigationBar() {
   const { orderNum } = useContext(data);
   const { transactions } = useContext(data);
   const productList = allData;
+  console.log(productList)
+
+  // allData.filter(product => product.product_name.toLowerCase().includes(searchTerm.toLowerCase()))
+  // const productName = allData.filter(product => product.product_name.toLowerCase().includes(searchTerm.toLowerCase()))
+
   return (
     <>
       <div className="bg-gray-50 p-4 ">
@@ -48,7 +54,7 @@ export default function NavigationBar() {
             </div>
 
             {/* Search Box */}
-            <Search />
+            <Search/>
 
           
 
@@ -59,59 +65,6 @@ export default function NavigationBar() {
         setCart={setCart}
         transactions={transactions}
       />
-
-            <div className="relative group">
-              <div className="flex-shrink-0 mb-4 md:mb-0 mr-6 ml-5">
-                <div className="flex items-center">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth={1.5}
-                    stroke="#6366F1"
-                    className="w-6 h-6"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z"
-                    />
-                  </svg>
-                </div>
-                {/* Dropdown content */}
-
-                <div className="absolute right-0 mt-100 w-3000 rounded-lg shadow-lg bg-white hidden group-hover:block">
-                  <div className="py-2">
-                    <Link
-                      href="/login"
-                      className="block mt-4 mb-4 text-indigo-500 hover:bg-indigo-500 hover:text-white px-6 py-2 rounded-full"
-                    >
-                      Login
-                    </Link>
-                    <Link
-                      href="/account"
-                      className="block mt-4 mb-4 text-indigo-500 hover:bg-indigo-500 hover:text-white px-6 py-2 rounded-full"
-                    >
-                      My Account
-                    </Link>
-
-                    <Link
-                      href="/register"
-                      className="block mt-4 mb-4 text-indigo-500 hover:bg-indigo-500 hover:text-white px-6 py-2 rounded-full"
-                    >
-                      Register
-                    </Link>
-                    <Link
-                      href="/login"
-                      className="block mt-4 mb-4 text-indigo-500 hover:bg-indigo-500 hover:text-white px-6 py-2 rounded-full"
-                    >
-                      Logout
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </div>
-
             {/* <Cart/> */}
           </div>
         </div>
@@ -120,7 +73,7 @@ export default function NavigationBar() {
         <div className="border-t border-gray-200 container mx-auto pb-4"></div>
       </div>
 
-      <div className="bg-gray-50 ">
+      <div className="bg-gray-50">
         <div className="ml-20 mt-0 md:mt-0 flex space-x-10 bg-gray-50">
           <Link
             href="/"
@@ -147,8 +100,6 @@ export default function NavigationBar() {
           >
             My Account
           </Link>
-
-          
         </div>
       </div>
     </>

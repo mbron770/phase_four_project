@@ -10,7 +10,7 @@ app.config["SQLALCHEMY_DATABASE_URI"]="sqlite:///app.db"
 db=SQLAlchemy(app)
 #1
 migrate=Migrate(app,db)
-CORS(app)
+CORS(app, origins=["http://localhost:3000"])
 flask_bcrypt=Bcrypt(app)
 app.secret_key="hello"
 SESSION_TYPE="sqlalchemy"

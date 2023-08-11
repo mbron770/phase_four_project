@@ -120,6 +120,17 @@ export default function Account() {
                     >
                       Register
                     </Link>
+
+
+                    {/* <a
+                      onClick={() => toggleSection("transactions")}
+                      className="text-indigo-500 hover:bg-indigo-500 hover:text-white px-4 py-1 rounded-full ml-.5"
+                      style={{ cursor: "pointer" }}
+                    >
+                      Register
+                    </a> */}
+
+
                   </div>
                 </div>
                 <div className="flex-shrink-0 mb-4 md:mb-0 mr-6 pb-2">

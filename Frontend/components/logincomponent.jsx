@@ -174,7 +174,7 @@ export default function LoginComponent() {
 			  <p className="mb-4 text-center">
 				New on Ecommerce?
 				<a
-				  href="#"
+				  href="/register"
 				  className="cursor-pointer text-indigo-500 no-underline hover:text-indigo-500"
 				>
 				  {" "}
