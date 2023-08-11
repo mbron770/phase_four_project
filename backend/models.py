@@ -42,17 +42,33 @@ class Product(db.Model, SerializerMixin):
     product_category=db.Column(db.String, nullable = False)
     price=db.Column(db.Double, nullable = False)
     product_quantity=db.Column(db.Integer, nullable = False)
+    image=db.Column(db.String, nullable = False)
     
     transactions = db.relationship('Transaction', back_populates = 'product')
     
     serialize_rules = ('-transactions.product',)
     
+# class Transaction(db.Model, SerializerMixin):
+#     __tablename__='transactions'
+#     id = db.Column(db.Integer, primary_key = True)
+#     # transaction_amount=db.Column(db.Double, nullable = False) 
+#     transaction_date=db.Column(db.DateTime, default = db.func.now())
+#     transaction_code = db.Column(db.Integer, nullable = False)
+#     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+#     product_id = db.Column(db.Integer, db.ForeignKey('products.id'))
+    
+#     user = db.relationship('User', back_populates = 'transactions')
+#     product = db.relationship('Product', back_populates = 'transactions')
+    
+#     serialize_rules = ('-user.transactions', '-product.transactions')
+    
+    
+    
 class Transaction(db.Model, SerializerMixin):
     __tablename__='transactions'
-    id = db.Column(db.Integer)
-    transaction_amount=db.Column(db.Double, nullable = False) 
+    id = db.Column(db.Integer, primary_key=True) 
     transaction_date=db.Column(db.DateTime, default = db.func.now())
-    transaction_code = db.Column(db.Integer, primary_key=True, nullable = False)
+    transaction_code = db.Column(db.Integer, nullable = False)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     product_id = db.Column(db.Integer, db.ForeignKey('products.id'))
     
@@ -60,4 +76,3 @@ class Transaction(db.Model, SerializerMixin):
     product = db.relationship('Product', back_populates = 'transactions')
     
     serialize_rules = ('-user.transactions', '-product.transactions')
-    

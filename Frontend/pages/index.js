@@ -1,15 +1,20 @@
 import Head from 'next/head'
-import styles from '../styles/Home.module.css';
 import React from 'react';
-import Navbar from '../components/navbar'
+import NavigationBar from '../components/navbar'
+import LoginComponent from '../components/logincomponent';
 
 export default function Home() {
   return (
     <div >
+      <NavigationBar/>
+      <LoginComponent/>
+     
+      
+  
    
       <h1>Home</h1>
-        
-        <Navbar />
+  
+      
         
 
        
