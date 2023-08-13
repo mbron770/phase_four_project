@@ -10,13 +10,6 @@ export default function Register(){
     const [newUser, setNewUser] = useState({})
     const [info, setInfo] = useState({});
     const router = useRouter()
-
-    // function handleChange(e) {
-    //   const { name, value } = e.target;
-    //   setData((prev) => ({ ...prev, [name]: value }));
-    // }
-
-    
     const URL = "https://backend-phase-4.onrender.com/user"
 
 
@@ -183,36 +176,3 @@ export default function Register(){
 
 }
 
-
-
-// function handleChange(e) {
-//   setInfo({ ...info, [e.target.name]: e.target.value });
-// }
-
-// const URL = "https://backend-phase-4.onrender.com/user";
-
-// function handlePost(e) {
-//   e.preventDefault();
-//   fetch(URL, {
-//     method: "POST",
-//     headers: {
-//       "Content-Type": "application/json",
-//     },
-//     body: JSON.stringify(info),
-//   })
-//     .then((response) => {
-//       if (response.ok) {
-//         return response.json();
-//       } else {
-//         return response.json().then((error) => Promise.reject(error));
-//       }
-//     })
-//     .then((user) => {
-//       if (user) {
-//         setUser(user);
-//         console.log(user);
-//         router.push('/products');
-//       }
-//     })
-//     .catch((error) => console.log(error.message));
-// }
