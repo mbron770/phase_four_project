@@ -41,7 +41,7 @@ export default function NavigationBar() {
                   className="ml-2 flex cursor-pointer items-center gap-2 text-indigo-500 no-underline hover:text-indigo-500"
                 >
                   <span className="flex-shrink-0 text-3xl font-black lowercase tracking-tight opacity-100">
-                    Ecommerce.
+                    TopProducts.
                   </span>
                 </Link>
               </div>

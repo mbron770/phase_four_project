@@ -114,12 +114,12 @@ export default function LoginComponent() {
                   className="flex cursor-pointer items-center gap-2 text-indigo-500 no-underline hover:text-indigo-500"
                 >
                   <span className="flex-shrink-0 text-3xl font-black lowercase tracking-tight opacity-100">
-                    Ecommerce.
+                    TopProducts.
                   </span>
                 </a>
               </div>
               <h4 className="mb-2 font-medium text-gray-700 xl:text-xl">
-                Welcome to ecomerce!
+                Welcome to TopProducts!
               </h4>
               <p className="mb-6 text-gray-500">
                 Please sign-in to access your account
@@ -164,7 +164,7 @@ export default function LoginComponent() {
               </form>
 
               <p className="mb-4 text-center">
-                New on Ecommerce?
+                New on TopProducts?
                 <a
                   href="/register"
                   className="cursor-pointer text-indigo-500 no-underline hover:text-indigo-500"
