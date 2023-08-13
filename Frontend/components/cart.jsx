@@ -1,36 +1,22 @@
+import React from "react";
+import { useContext } from "react";
+import Link from "next/link";
+import { data } from "../context";
+import CartItem from "./cartItem";
 
-import React from 'react';
-import { useContext } from 'react'
-import Link from 'next/link'
-import { data } from '../context'
-import CartItem from './cartItem'
+const Cart = ({ cart, setCart, transactions }) => {
+  let subtotal = [];
 
-const Cart = ({cart, setCart, transactions}) => {
+  subtotal = cart.map((product) => product.price);
+  console.log(subtotal);
 
+  return (
+    <>
+      <CartItem cart={cart} subtotal={subtotal} />
 
-    
-    let subtotal = []
-    
-  
-    subtotal = (cart.map((product) => (product.price)))
-    console.log(subtotal)
-  
-   
-   
-    return(
-        <>
-        <CartItem cart = {cart} subtotal = {subtotal}/>
-
-
-        
-        <div>
-            </div>
-
-
-
-            
-        </>
-    )
-}
+      <div></div>
+    </>
+  );
+};
 
 export default Cart;

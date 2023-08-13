@@ -1,11 +1,9 @@
 import React from "react";
 import Link from "next/link";
-import Cart from '../components/cart'
+import Cart from "../components/cart";
 import Search from "../components/search";
 import { data } from "../context";
 import { useContext, useState } from "react";
-
-
 
 export default function NavigationBar() {
   const { allData } = useContext(data);
@@ -50,17 +48,15 @@ export default function NavigationBar() {
             </div>
 
             {/* Search Box */}
-            <Search/>
-
-          
+            <Search />
 
             <Cart
-        cart={cart}
-        setOrderNum={setOrderNum}
-        orderNum={orderNum}
-        setCart={setCart}
-        transactions={transactions}
-      />
+              cart={cart}
+              setOrderNum={setOrderNum}
+              orderNum={orderNum}
+              setCart={setCart}
+              transactions={transactions}
+            />
             {/* <Cart/> */}
           </div>
         </div>
@@ -83,7 +79,7 @@ export default function NavigationBar() {
           >
             Products
           </Link>
-          
+
           <Link
             href="/login"
             className="text-indigo-500 hover:bg-indigo-500 hover:text-white px-4 py-1 rounded-full"

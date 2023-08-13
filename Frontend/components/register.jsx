@@ -11,13 +11,13 @@ export default function Register(){
     const [info, setInfo] = useState({});
     const router = useRouter()
 
+    // function handleChange(e) {
+    //   const { name, value } = e.target;
+    //   setData((prev) => ({ ...prev, [name]: value }));
+    // }
 
-
-    function handleChange(e){
-        setInfo({...info, [e.target.name]: e.target.value})
-    }
-
-    const URL = "http://localhost:5555/user"
+    
+    const URL = "https://backend-phase-4.onrender.com/user"
 
 
     function handlePost(e){
@@ -25,9 +25,9 @@ export default function Register(){
         fetch(URL, {
             method: 'POST', 
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
             }, 
-            body: JSON.stringify(info)
+            body: JSON.stringify(info),
         }).then(response => {
             if(response.ok){
                 return response.json()
@@ -36,9 +36,10 @@ export default function Register(){
                 return response.json().then((error) => Promise.reject(error))
             }
 
-        }).then((info) => {
-            if(info){
-            setNewUser(info)
+        }).then((user) => {
+            if(user){
+            setUser(user)
+            console.log(user)
             router.push('/products')
 
             }
@@ -46,6 +47,11 @@ export default function Register(){
         }).catch(error => console.log(error.message))
 
     }
+
+    function handleChange(e){
+      setInfo({...info, [e.target.name]: e.target.value})
+  }
+
 
     return (
         <div className="flex h-[100vh] w-screen w-full text-gray-600 bg-gray-50">
@@ -176,3 +182,37 @@ export default function Register(){
 
 
 }
+
+
+
+// function handleChange(e) {
+//   setInfo({ ...info, [e.target.name]: e.target.value });
+// }
+
+// const URL = "https://backend-phase-4.onrender.com/user";
+
+// function handlePost(e) {
+//   e.preventDefault();
+//   fetch(URL, {
+//     method: "POST",
+//     headers: {
+//       "Content-Type": "application/json",
+//     },
+//     body: JSON.stringify(info),
+//   })
+//     .then((response) => {
+//       if (response.ok) {
+//         return response.json();
+//       } else {
+//         return response.json().then((error) => Promise.reject(error));
+//       }
+//     })
+//     .then((user) => {
+//       if (user) {
+//         setUser(user);
+//         console.log(user);
+//         router.push('/products');
+//       }
+//     })
+//     .catch((error) => console.log(error.message));
+// }

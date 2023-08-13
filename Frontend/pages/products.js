@@ -15,35 +15,11 @@ export default function products() {
   const { transactions } = useContext(data);
   const productList = allData;
   const router = useRouter();
- 
-
-
-
 
   if (user) {
     return (
       <>
         <NavigationBar />
-        {/* <Cart
-        cart={cart}
-        setOrderNum={setOrderNum}
-        orderNum={orderNum}
-        setCart={setCart}
-        transactions={transactions}
-      /> */}
-        {/* <h1>Products</h1>; */}
-        {/* {productList.map((product) => (
-        <Product
-          key={product.id}
-          setCart={setCart}
-          cart={cart}
-          product={product}
-        />
-      ))} */}
-
-
-
-
 
         <Product productList={productList} setCart={setCart} cart={cart} />
       </>

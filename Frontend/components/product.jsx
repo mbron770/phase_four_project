@@ -2,26 +2,25 @@ import { data } from "../context";
 import { useContext, useState, useEffect } from "react";
 import { useRouter } from "next/router";
 
-
 const Product = ({ productList, cart, setCart }) => {
-  const {searchTerm} = useContext(data)
-  const { setSearchTerm } = useContext(data)
+  const { searchTerm } = useContext(data);
+  const { setSearchTerm } = useContext(data);
 
-
-
-  const filteredProducts = !searchTerm ? 
-  productList : 
-  productList.filter(product => 
-    product.product_name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    product.product_category.toLowerCase().includes(searchTerm.toLowerCase()) || 
-    product.price.toString().includes(searchTerm)
-  );
+  const filteredProducts = !searchTerm
+    ? productList
+    : productList.filter(
+        (product) =>
+          product.product_name
+            .toLowerCase()
+            .includes(searchTerm.toLowerCase()) ||
+          product.product_category
+            .toLowerCase()
+            .includes(searchTerm.toLowerCase()) ||
+          product.price.toString().includes(searchTerm)
+      );
 
   return (
-  
-
     <div className="text-center p-20 bg-gray-50">
-
       <section
         id="productCards"
         className="w-fit mx-auto grid grid-cols-1 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 justify-items-center justify-center gap-y-20 gap-x-14 mt-0 mb-5"

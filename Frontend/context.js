@@ -17,7 +17,10 @@ function Context({ children }) {
       setOrderNum(transactions["transaction_code"] + 1)
     }
   }
-  useEffect(() => {fetch("http://localhost:5555/transactions").then(response=>response.json()).then(parsed => setTransactions(parsed))}, [])
+  useEffect(() => {fetch(" https://backend-phase-4.onrender.com/transactions").then(response=>response.json()).then(parsed => setTransactions(parsed))}, [])
+  'http://localhost:5555'
+  
+ 
   useEffect(()=>checkOrderNum(), [transactions])
 
   // useEffect(() => {
@@ -28,7 +31,7 @@ function Context({ children }) {
   },[])
 
   function getSession() {
-    const URL = "http://localhost:5555/session";
+    const URL = " https://backend-phase-4.onrender.com/session";
     fetch(URL)
     .then(res => {
         if (!res.ok) {
@@ -50,7 +53,7 @@ function Context({ children }) {
 
 
 
-  useEffect(() => {fetch("http://localhost:5555/products").then(response=>response.json()).then(parsed => setAllData(parsed))}, [])
+  useEffect(() => {fetch("https://backend-phase-4.onrender.com/products").then(response=>response.json()).then(parsed => setAllData(parsed))}, [])
 
   
   

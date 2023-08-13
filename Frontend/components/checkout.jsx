@@ -28,7 +28,7 @@ export default function Checkout() {
   function purchase() {
     // const user = 1;
     const packet = { user_id: user.id, products: cart, transaction_id: orderNum };
-    fetch("http://localhost:5555/checkout", {
+    fetch("https://backend-phase-4.onrender.com/checkout", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(packet),
@@ -147,8 +147,8 @@ export default function Checkout() {
                   cart.length > 0 &&
                   cart.map((product, index) => (
                     <div className="mt-8 space-y-3 rounded-lg border bg-white px-2 py-4 sm:px-6">
-                      <li className="flex py-6">
-                        <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
+                      <li className="flex py-">
+                        <div className="h-16 w-16 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
                           <img
                             src={product.image}
                             alt="Salmon orange fabric pouch with match zipper, gray zipper pull, and adjustable hip belt."
@@ -159,7 +159,7 @@ export default function Checkout() {
                           <div>
                             <div className="flex justify-between text-base font-medium text-gray-900">
                               <h3>
-                                <p className="text-lg text-gray-700 truncate block capitalize">
+                                <p className="text-md text-gray-700 truncate block capitalize">
                                   {product.product_name}
                                 </p>
                               </h3>

@@ -10,7 +10,7 @@ export default function AccountDetails() {
     setInfo({ ...info, [e.target.name]: e.target.value });
   }
   console.log(user);
-  const URL = "http://localhost:5555/user";
+  const URL = "https://backend-phase-4.onrender.com/user";
 
   function handleEdit(e) {
     e.preventDefault();
