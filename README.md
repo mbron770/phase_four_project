@@ -94,7 +94,7 @@ Upon successful setup (see **Setup Instructions**), you should see the following
 
 To download the dependencies for the frontend and backend, follow tese instructions
 1. Clone the repository and open it in your favorite code editor
-2. Open the integrated terminal and run the following commands
+2. Open the integrated terminal and run the following commands in order
 
 ```console 
 pipenv install
@@ -112,16 +112,19 @@ note: You may have to download the dependencies yourself if you are running a di
 
 3. Run your Flask API on [`localhost:5555`](http://localhost:5555) by
 running
-```console python backend/app.py```
 
-5. Run your React app on [`localhost:4000`](http://localhost:4000) by
+```console
+python backend/app.py
+```
+
+4. Run your React app on [`localhost:4000`](http://localhost:4000) by
 running
 
 ```console
 npm run dev
 ```
 
-7. Stand up the database by running the following commands in order
+5. Stand up the database by running the following commands in order
 
 ```console 
 export FLASK_APP=backend/app.py
