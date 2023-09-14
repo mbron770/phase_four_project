@@ -110,11 +110,15 @@ running
 
 5. Run your React app on [`localhost:4000`](http://localhost:4000) by
 running
-```console npm run dev```
+```console
+npm run dev
+```
 
 7. Stand up the database by running the following commands in order
 
-```console export FLASK_APP=backend/app.py ```
+```console 
+export FLASK_APP=backend/app.py
+```
 ```console
 flask db init
 ```
