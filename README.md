@@ -10,7 +10,7 @@ Implemented product search, shopping bag, and purchasing.
 
 Created a user dashboard to edit contact and delivery information and track placed orders.  
 
- <a href="[https://www.ledgerpf.com/](https://main.d38jhircp1zab3.amplifyapp.com/)">Live App
+ <a href="https://www.ledgerpf.com/](https://main.d38jhircp1zab3.amplifyapp.com/">Live App
 
 
 
@@ -39,40 +39,82 @@ Upon successful setup (see **Setup Instructions**), you should see the following
 
 ```
 .
-├── .next
-├── node_modules
-├── .env.example
-├── .gitignore
+├── Frontend
+│   ├── components
+│   │   ├── account.jsx
+│   │   ├── accountdetails.jsx
+│   │   ├── cart.jsx
+│   │   ├── cartItem.jsx
+│   │   ├── checkout.jsx
+│   │   ├── logincomponent.jsx
+│   │   ├── logout.jsx
+│   │   ├── navbar.jsx
+│   │   ├── product.jsx
+│   │   ├── register.jsx
+│   │   ├── search.jsx
+│   │   ├── transaction.jsx
+│   │   └── transactions.jsx
+│   ├── context.js
+    ├── .next
+    ├── node_modules
+    ├── .env.example
+    ├── .gitignore
+│   ├── package-lock.json
+│   ├── package.json
+│   ├── pages
+│   │   ├── _app.js
+│   │   ├── account.js
+│   │   ├── checkoutPage.js
+│   │   ├── index.js
+│   │   ├── login.js
+│   │   ├── products.js
+│   │   └── register.js
+│   ├── postcss.config.js
+│   ├── public
+│   │   ├── favicon.ico
+│   │   └── vercel.svg
+│   ├── styles
+│   │   ├── Home.module.css
+│   │   └── globals.css
+│   └── tailwind.config.js
+├── README.md
+└── backend
+    ├── Pipfile
+    ├── Pipfile.lock
+    ├── app.py
+    ├── config.py
+    ├── migrations
+    │   ├── README
+    │   ├── alembic.ini
+    │   ├── env.py
+    │   ├── script.py.mako
+    │   └── versions
+    │       └── cd332f08a255_.py
+    ├── models.py
+    └── seed.py
 
 ```
 
 
-## Setup
+## Setup Instructions
 
-To download the dependencies for the frontend and backend, run:
+To download the dependencies for the frontend and backend, follow tese instructions
+1. Clone the repository and open it in your favorite code editor
+2. Open the integrated terminal and run the following commands
 
-```console
 pipenv install
 pipenv shell
 npm install
-```
-note: You may have to download the dependencies individually yourself, in such a case consult the package.json file in Frontend and pipfile in backend to view the list of libraries used in the project
 
-You can run your Flask API on [`localhost:5555`](http://localhost:5555) by
-running:
+note: You may have to download the dependencies yourself if you are running a different node or python version, in such a case consult the package.json file in Frontend and pipfile in backend to view the list of libraries used in the project
 
-```console
-python backend/app.py
-```
+3. Run your Flask API on [`localhost:5555`](http://localhost:5555) by
+running python backend/app.py
 
-You can run your React app on [`localhost:4000`](http://localhost:3000) by
-running:
+4. Run your React app on [`localhost:4000`](http://localhost:4000) by
+running npm run dev
 
-```sh
-npm run dev
-```
-
-use these commands to stand up and populate the database
+5. Stand up the database by running the following commands in order
 
 ```console
 export FLASK_APP=backend/app.py
