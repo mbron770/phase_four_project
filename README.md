@@ -115,7 +115,7 @@ python backend/app.py ```
 5. Run your React app on [`localhost:4000`](http://localhost:4000) by
 running
 ```console
-npm run dev ```
+npm run dev```
 
 7. Stand up the database by running the following commands in order
 
