@@ -110,7 +110,7 @@ note: You may have to download the dependencies yourself if you are running a di
 3. Run your Flask API on [`localhost:5555`](http://localhost:5555) by
 running
 ```console
-python backend/app.py ```
+python backend/app.py```
 
 5. Run your React app on [`localhost:4000`](http://localhost:4000) by
 running
