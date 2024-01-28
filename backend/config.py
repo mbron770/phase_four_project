@@ -14,3 +14,6 @@ CORS(app, origins=["http://localhost:3000"])
 flask_bcrypt=Bcrypt(app)
 app.secret_key="hello"
 SESSION_TYPE="sqlalchemy"
+
+
+
